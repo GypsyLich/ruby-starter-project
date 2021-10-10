@@ -1,0 +1,10 @@
+class IOManager
+
+  def input_temp_value: (String message) -> ::Float
+
+  def input_scale: (String message) -> ::String
+
+  def next_state: -> void
+
+  def start: -> void
+end
