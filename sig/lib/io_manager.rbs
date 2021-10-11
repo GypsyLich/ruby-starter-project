@@ -1,0 +1,17 @@
+class IOManager
+  include IOStates
+
+  include TempScaleNames
+
+  def initialize: () -> untyped
+
+  def valid_scale?: (String scale) -> untyped
+
+  def input_temp_value: () -> (nil | untyped)
+
+  def input_scale: (String message) -> untyped
+
+  def next_state: () -> untyped
+
+  def start: () -> untyped
+end
