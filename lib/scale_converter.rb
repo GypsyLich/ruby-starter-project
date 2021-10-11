@@ -5,6 +5,10 @@ class ScaleConverter
 
   @k = 273.15
 
+  def initialize
+    @k = 273.15
+  end
+
   # @from_scale
   # @to_scale
   # @temperature
@@ -16,14 +20,14 @@ class ScaleConverter
   #   @temperature = temperature
   # end
   #
-  # def self.from(scale)
+  # def from(scale)
   #   @from_scale = scale
   #   if @to_scale && @temperature
   #     return
   #   end
   # end
   #
-  # def self.to(scale)
+  # def to(scale)
   #   @to_scale = scale
   #   if @from_scale && @temperature
   #     @result =
@@ -31,7 +35,7 @@ class ScaleConverter
   #   end
   # end
 
-  def self.from_kelvin(degree, to_scale)
+  def from_kelvin(degree, to_scale)
     case to_scale
     when CELSIUS
       (degree - @k).round(2)
@@ -40,7 +44,7 @@ class ScaleConverter
     end
   end
 
-  def self.from_fahrenheit(degree, to_scale)
+  def from_fahrenheit(degree, to_scale)
     case to_scale
     when CELSIUS
       ((degree - 32) / 1.8).round(2)
@@ -49,7 +53,7 @@ class ScaleConverter
     end
   end
 
-  def self.from_celsius(degree, to_scale)
+  def from_celsius(degree, to_scale)
     case to_scale
     when KELVIN
       (degree + @k).round(2)
@@ -58,7 +62,7 @@ class ScaleConverter
     end
   end
 
-  def self.convert(degree, from_scale, to_scale)
+  def convert(degree, from_scale, to_scale)
     return degree if from_scale == to_scale
 
     case from_scale

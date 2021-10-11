@@ -1,4 +1,4 @@
-require_relative './enums/_states'
+require_relative './enums/io_states'
 require_relative './enums/temp_scale_names'
 require_relative './scale_converter'
 
@@ -8,11 +8,15 @@ class IOManager
 
   @current_state = READ_FROM_TEMP_SCALE
 
-  def self.valid_scale?(scale)
+  def initialize
+    @current_state = READ_FROM_TEMP_SCALE
+  end
+
+  def valid_scale?(scale)
     [FAHRENHEIT, KELVIN, CELSIUS].include?(scale)
   end
 
-  def self.input_temp_value
+  def input_temp_value
     puts 'Enter degree: '
     temperature = gets.chomp
 
@@ -25,7 +29,7 @@ class IOManager
     temperature.to_f
   end
 
-  def self.input_scale(message)
+  def input_scale(message)
     puts message
     start_scale = gets.chomp.upcase
 
@@ -37,11 +41,11 @@ class IOManager
     puts 'Incorrect scale'
   end
 
-  def self.next_state
+  def next_state
     @current_state = (@current_state + 1).modulo(IOStates.constants.count)
   end
 
-  def self.start
+  def start
     from_scale = CELSIUS
     to_scale = CELSIUS
     temp_value = 0
@@ -55,7 +59,7 @@ class IOManager
       when READ_FROM_TEMP_VALUE
         temp_value = input_temp_value
       when CONVERT_AND_EXIT
-        result = ScaleConverter.convert(temp_value, from_scale, to_scale)
+        result = ScaleConverter.new.convert(temp_value, from_scale, to_scale)
         puts "#{temp_value}°#{from_scale} = #{result}°#{to_scale}"
         exit
       end
@@ -63,4 +67,5 @@ class IOManager
   end
 end
 
-IOManager.start
+io = IOManager.new
+io.start
