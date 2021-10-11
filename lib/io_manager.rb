@@ -18,7 +18,9 @@ class IOManager
 
   def input_temp_value
     puts 'Enter degree: '
-    temperature = gets.chomp
+    temperature = gets
+    temperature ||= ''
+    temperature.chomp!
 
     if temperature.match(Regexp.new(/\d(\.\d+)?/)).nil?
       puts 'Error: incorrect number format'
@@ -31,7 +33,10 @@ class IOManager
 
   def input_scale(message)
     puts message
-    start_scale = gets.chomp.upcase
+    start_scale = gets
+    start_scale ||= ''
+    start_scale = start_scale.upcase
+    start_scale.chomp!
 
     if valid_scale?(start_scale)
       next_state
