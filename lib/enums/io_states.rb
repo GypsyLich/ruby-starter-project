@@ -1,4 +1,4 @@
-module IOStates
+module Enums.IOStates
   READ_FROM_TEMP_SCALE = 0
 
   READ_TO_TEMP_SCALE = 1
