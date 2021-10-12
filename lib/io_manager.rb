@@ -72,5 +72,5 @@ class IOManager
   end
 end
 
-io = IOManager.new
+io = IOManager.new ## вынести в отдельный файл
 io.start
