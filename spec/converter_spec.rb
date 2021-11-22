@@ -1,5 +1,5 @@
 require_relative '../lib/scale_converter'
-require_relative '../lib/enums/temp_scale_names'
+require_relative '../lib/temp_scale_names'
 
 class Test
   include TempScaleNames

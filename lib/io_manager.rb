@@ -1,5 +1,5 @@
-require_relative './enums/io_states'
-require_relative './enums/temp_scale_names'
+require_relative './io_states'
+require_relative './temp_scale_names'
 require_relative './scale_converter'
 
 class IOManager
@@ -71,6 +71,3 @@ class IOManager
     end
   end
 end
-
-io = IOManager.new ## вынести в отдельный файл
-io.start

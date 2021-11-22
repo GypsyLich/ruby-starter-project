@@ -1,4 +1,4 @@
-require_relative './enums/temp_scale_names'
+require_relative './temp_scale_names'
 
 class ScaleConverter
   include TempScaleNames
@@ -8,32 +8,6 @@ class ScaleConverter
   def initialize
     @k = 273.15
   end
-
-  # @from_scale
-  # @to_scale
-  # @temperature
-  # @result
-  #
-  # def initialize(from_scale, to_scale, temperature)
-  #   @from_scale = from_scale
-  #   @to_scale = to_scale
-  #   @temperature = temperature
-  # end
-  #
-  # def from(scale)
-  #   @from_scale = scale
-  #   if @to_scale && @temperature
-  #     return
-  #   end
-  # end
-  #
-  # def to(scale)
-  #   @to_scale = scale
-  #   if @from_scale && @temperature
-  #     @result =
-  #     return self
-  #   end
-  # end
 
   def from_kelvin(degree, to_scale)
     case to_scale
